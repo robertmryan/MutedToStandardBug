@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MutedToStandardBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-Zp-PoL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iiD-VS-acs">
+                                <rect key="frame" x="55.5" y="64" width="303" height="32"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <segments>
+                                    <segment title="Muted"/>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeMapTypeSegmentedControlValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="xXd-Cn-ebg"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUO-OH-Qmk">
+                                <rect key="frame" x="31.5" y="691.5" width="351" height="160.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yam-3l-UQS">
+                                        <rect key="frame" x="10" y="10" width="331" height="140.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJ6-JL-OGF">
+                                                <rect key="frame" x="0.0" y="0.0" width="331" height="103.5"/>
+                                                <string key="text">In iOS 13, if you switch between Standard and Muted, above, you won't see the change reflected in the map unless you turn on the switch below, which employs a kludgy forcing of the rerendering of the map.</string>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-eZ-uBM" userLabel="Force Change Stack View">
+                                                <rect key="frame" x="84.5" y="109.5" width="162" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Force Change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-6n-ygB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="31"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0W6-aX-gR2">
+                                                        <rect key="frame" x="113" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="didChangeForceChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="kI4-0F-baJ"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="yam-3l-UQS" firstAttribute="top" secondItem="wUO-OH-Qmk" secondAttribute="top" constant="10" id="4fY-C5-NZI"/>
+                                    <constraint firstAttribute="trailing" secondItem="yam-3l-UQS" secondAttribute="trailing" constant="10" id="fpP-7b-si0"/>
+                                    <constraint firstItem="yam-3l-UQS" firstAttribute="leading" secondItem="wUO-OH-Qmk" secondAttribute="leading" constant="10" id="m3d-oQ-vwv"/>
+                                    <constraint firstAttribute="bottom" secondItem="yam-3l-UQS" secondAttribute="bottom" constant="10" id="m8v-8u-9qq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wUO-OH-Qmk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Qz-Ml-W0m"/>
+                            <constraint firstItem="rFI-Zp-PoL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="ArO-20-Jgf"/>
+                            <constraint firstItem="iiD-VS-acs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B7z-dr-rKt"/>
+                            <constraint firstItem="rFI-Zp-PoL" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="JHc-tk-S6G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wUO-OH-Qmk" secondAttribute="bottom" constant="10" id="Jl9-7y-SVy"/>
+                            <constraint firstItem="rFI-Zp-PoL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ahq-hy-TyU"/>
+                            <constraint firstItem="rFI-Zp-PoL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="l9x-fj-KZR"/>
+                            <constraint firstItem="HJ6-JL-OGF" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="mrB-rz-hcU"/>
+                            <constraint firstItem="iiD-VS-acs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="wbg-7m-Zcu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="forceChangeSwitch" destination="0W6-aX-gR2" id="tU1-7D-Bao"/>
+                        <outlet property="mapTypeSegmentedControl" destination="iiD-VS-acs" id="RgZ-zX-TL2"/>
+                        <outlet property="mapView" destination="rFI-Zp-PoL" id="QCD-Jk-wKN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+</document>

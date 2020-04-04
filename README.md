@@ -6,7 +6,7 @@ This is a demonstration of a problem that manifests itself in iOS 13 where chang
 
 You can also force the map view to be re-rendered by either:
 
-* Reset the `camera`, `region`, or `centerCoordinate` of the map view.
+* Reset the  `centerCoordinate` of the map view.
 * Instead of going directly from `.standard` to `.mutedStandard` (or vice versa), change to `.satellite`  first, and it works.
 
 ![Good](Snapshots/good.gif)
